@@ -40,3 +40,23 @@
 .prose img {
   border-radius: 0.5rem;
 }
+
+/* Subtitles (Dhub subtitle blocks) further down a page: a muted line of text
+   under a heading. The one under the page title is the frontmatter
+   description, which fumadocs renders itself. */
+.prose .subtitle {
+  margin-block: 1.25em;
+  color: var(--color-fd-muted-foreground);
+}
+
+.prose :is(h1, h2, h3, h4, h5, h6):has(+ .subtitle) {
+  margin-bottom: 0.5em;
+}
+
+.prose :is(h1, h2, h3, h4, h5, h6) + .subtitle {
+  margin-top: 0;
+}
+
+.prose h1 + .subtitle {
+  font-size: 1.125rem;
+}
