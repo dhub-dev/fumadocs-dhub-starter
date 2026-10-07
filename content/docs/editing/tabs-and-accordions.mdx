@@ -36,16 +36,30 @@ pnpm dev
 
 In your repo, tabs are stored as the Fumadocs `<Tabs>` and `<Tab>` components, nothing Dhub-specific.
 
+## Collapsible sections
+
+A collapsible section hides detail behind a click. Use it for long asides, troubleshooting steps, or anything most readers don't need. Type `/toggle` to insert one.
+
+<details>
+  <summary>What happens in the repo?</summary>
+
+  Collapsible sections are saved as plain `<details>` and `<summary>` HTML, so they work anywhere without a component import.
+</details>
+
 ## Accordions
 
-An accordion hides detail behind a click. Use it for long asides, troubleshooting steps, or anything most readers don't need. Type `/toggle` to insert one.
+Fumadocs also ships an `<Accordions>` component, which groups several collapsible items into one card and keeps only one open at a time.
 
 <Accordions type="single">
-  <Accordion title="What happens in the repo?">
-    Accordions are saved as the Fumadocs `<Accordions>` and `<Accordion>` components, which the theme styles and animates out of the box.
+  <Accordion title="Can I edit these in Dhub?">
+    Yes, as MDX. Dhub keeps `<Accordions>` blocks exactly as written and shows them as editable MDX in the editor. A dedicated accordion block is coming.
+  </Accordion>
+
+  <Accordion title="Why not edit them visually today?">
+    An accordion group is one card with several items. Mapping it onto the collapsible section block would have split one card into several on save, so the group is preserved untouched instead.
   </Accordion>
 </Accordions>
 
 <Callout type="idea" title="Try it">
-  Rename a tab above, add another item to the group, or insert a fresh accordion with `/toggle`.
+  Rename a tab above, add another item to the group, or insert a fresh collapsible section with `/toggle`.
 </Callout>

@@ -41,6 +41,51 @@
   border-radius: 0.5rem;
 }
 
+/* Collapsible sections (Dhub toggle blocks). Fumadocs ships no styling for
+   details/summary, so without this a /toggle renders as a bare browser
+   disclosure widget. Kept close to the Accordions look. */
+.prose details {
+  margin: 1rem 0;
+  overflow: hidden;
+  border: 1px solid var(--color-fd-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-fd-card);
+}
+
+.prose details > summary {
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.prose details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.prose details > summary::before {
+  content: '\25B6';
+  display: inline-block;
+  margin-inline-end: 0.5rem;
+  font-size: 0.75em;
+  color: var(--color-fd-muted-foreground);
+  transition: transform 0.2s ease;
+}
+
+.prose details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.prose details[open] > summary {
+  border-bottom: 1px solid var(--color-fd-border);
+}
+
+/* The border on details stops the children's margins from collapsing out, so
+   prose's own vertical rhythm gives the content its breathing room. */
+.prose details > *:not(summary) {
+  padding-inline: 1rem;
+}
+
 /* Subtitles (Dhub subtitle blocks) further down a page: a muted line of text
    under a heading. The one under the page title is the frontmatter
    description, which fumadocs renders itself. */
